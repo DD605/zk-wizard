@@ -1,0 +1,23 @@
+<?page title="~~ PEOPLE ~~" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xsi:schemaLocation="
+    	http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd
+    	http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('be.scorgar.demo.controller.PersonCatalogVM')">
+		<label value="@bind('Welcome, '.concat(vm.userName))" />
+		<listbox model="@load(vm.people)" selectedItem="@bind(vm.person)" />
+
+		<space />
+		<hlayout>
+			<button label="add person" onClick="@command('openPersonForm')" />
+			<button label="update person" onClick="@command('updatePersonForm')" />
+			<space/>
+			<button label="remove person" onClick="@command('deletePerson')" />
+			<button label="refresh" onClick="@command('refresh')" />
+		</hlayout>
+	</window>
+
+</zk>

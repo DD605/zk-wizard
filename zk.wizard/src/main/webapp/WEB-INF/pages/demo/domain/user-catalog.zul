@@ -1,0 +1,20 @@
+<?page title="~~ USERS ~~" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xsi:schemaLocation="
+    	http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd
+    	http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('be.scorgar.demo.controller.UserCatalogVM')">
+		<label value="@bind('Welcome, '.concat(vm.userName))" />
+		<listbox model="@load(vm.users)" />
+
+		<space />
+		<hlayout>
+			<button label="add user" onClick="@command('openUserWizard')" />
+			<button label="refresh" onClick="@command('refresh')" />
+		</hlayout>
+	</window>
+
+</zk>

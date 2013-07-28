@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	created by: Dirk
+	      date: 22-jul.-2013
+-->
+<?page title="~~ooo~~" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xsi:schemaLocation="
+    	http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd
+    	http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+  
+	<window closable="true" title="Person form" apply="org.zkoss.bind.BindComposer" border="normal" viewModel="@id('vm') @init('be.scorgar.demo.controller.PersonFormVM', form = self)" width="500px">
+		<div style="padding:8px;">
+		<hlayout style="padding:6px;color:blue;" spacing="6px">
+			<label  value="provide person info"/>
+		</hlayout>
+		<space height="8px"/>
+		<vlayout spacing="8px">
+			<hlayout spacing="6px">
+				<label value="first name"/>
+				<textbox value="@load(vm.person.firstname) @save(vm.person.firstname, before = 'save')" hflex="2"/>
+			</hlayout>
+			<hlayout spacing="6px">
+				<label value="last name"/>
+				<textbox value="@load(vm.person.lastname) @save(vm.person.lastname, before = 'save')"  hflex="2"/>
+			</hlayout>
+			<space height="8px"/>
+			<hlayout spacing="6px">
+				<space/>
+				<button label="save" onClick="@command('save')" width="150px"/>
+				<button label="cancel" onClick="@command('cancel')" width="150px"/>
+			</hlayout>
+		</vlayout>
+		</div>
+	</window>
+    
+</zk>
